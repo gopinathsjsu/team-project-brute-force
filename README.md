@@ -9,6 +9,6 @@ MERN Stack\
 Database: MongoDB\
 Backend: ExpressJS and NodeJS\
 Frontend: React\
-External JS Libraries: (Coming soon)
+JS Libraries: (Coming soon)
 ## Scrum Meetings Schedule:
 Every Sunday

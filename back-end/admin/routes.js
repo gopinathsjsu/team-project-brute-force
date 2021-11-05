@@ -153,4 +153,24 @@ router.get('/viewallflights', requireSignIn, verifyAdmin, async (req, res) => {
     res.status(200).send({ flights, message: "Flights successfully fetched" });
 });
 
+// View All Reservations
+router.get('/viewallreservations', requireSignIn, verifyAdmin, async (req, res) => {
+    const reservations = await models.reservations.findAll({
+        include: [
+            {
+                model: models.users,
+                attributes: ["id", "firstName", "lastName", "email"],
+                required: true,
+            },
+            {
+                model: models.flights,
+                required: true,
+            }
+        ],
+        order: [["createdAt", "DESC"]]
+    });
+    res.status(200).send({ reservations });
+    return;
+});
+
 module.exports = router;

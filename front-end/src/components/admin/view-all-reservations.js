@@ -9,7 +9,8 @@ class ViewAllReservations extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            reservationData: []
+            reservationData: [],
+            isPresent : false
         }
     }
     async componentDidMount(){
@@ -26,8 +27,6 @@ class ViewAllReservations extends Component {
         if (this.state.reservationData.length == 0) {
             individualReservationDetails = <div style={{ marginLeft: "300px" }}>
                 <img src={emptyplaceholder} width="300px" height="200px" alt="" />
-                <br></br>
-                <br></br>
                 <h4 style={{ font: "Bookman",paddingLeft :"100px" }}>Sorry!! No reservations yet</h4>
             </div>
         } else {

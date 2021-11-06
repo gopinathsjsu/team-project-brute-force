@@ -1,0 +1,43 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development nodemon app",
+    "prod": "NODE_ENV=production node app",
+    "create_tables": "NODE_ENV=development node create_tables"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monilsakhidas/AirlineReservationSystem.git"
+  },
+  "author": "Monil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monilsakhidas/AirlineReservationSystem/issues"
+  },
+  "homepage": "https://github.com/monilsakhidas/AirlineReservationSystem#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "custom-env": "^2.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.12.0-alpha.1",
+    "swagger-autogen": "^2.13.2",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.2.0"
+  }
+}

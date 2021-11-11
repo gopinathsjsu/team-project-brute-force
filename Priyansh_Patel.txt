@@ -1,0 +1,16 @@
+
+## Sprint 1
+
+* Weekly Scrum Report
+
+* Explored different technologies.
+
+* Researched what technologies would work best taking into account everyone’s hands on experience on different technologies
+
+## Sprint 2
+
+* Weekly Scrum Report
+
+* Decided to work on class components of React and did an initial set-up with Het.
+
+* Created Wireframes for landing page, login and sign up.

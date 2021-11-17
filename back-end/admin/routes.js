@@ -113,4 +113,44 @@ router.post('/createflight', requireSignIn, verifyAdmin, async (req, res) => {
     return;
 });
 
+// View My Flights
+router.get('/viewmyflights', requireSignIn, verifyAdmin, async (req, res) => {
+    const flights = await models.flights.findAll(
+        {
+            where: { createdBy: req.user.id },
+            include: [
+                {
+                    model: models.users,
+                    attributes: ["id", "firstName", "lastName"],
+                    required: true,
+                    on: {
+                        col1: db.where(db.col("user.id"), "=", db.col("createdBy"))
+                    }
+                }
+            ],
+            order: [["createdAt", "DESC"]]
+        },
+    );
+    res.status(200).send({ flights, message: "Flights successfully fetched" });
+});
+
+// View All Flights
+router.get('/viewallflights', requireSignIn, verifyAdmin, async (req, res) => {
+
+    const flights = await models.flights.findAll({
+        include: [
+            {
+                model: models.users,
+                attributes: ["id", "firstName", "lastName"],
+                required: true,
+                on: {
+                    col1: db.where(db.col("user.id"), "=", db.col("createdBy"))
+                }
+            }
+        ],
+        order: [["createdAt", "DESC"]]
+    });
+    res.status(200).send({ flights, message: "Flights successfully fetched" });
+});
+
 module.exports = router;

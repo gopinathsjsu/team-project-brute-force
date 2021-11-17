@@ -50,6 +50,15 @@ router.post("/search", requireSignIn, verifyCustomer, async (req, res) => {
         return;
     }
 
+    const date = new Date(req.body.departureTime);
+    if (date == "Invalid Date") {
+        res.status(400).send({ message: "Enter a valid departure date." });
+        return;
+    }
+
+    const dateNextDay = new Date(date.getTime() + 60 * 60 * 24 * 1000);
+
+
     const flights = await models.flights.findAll(
         {
             where: {

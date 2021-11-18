@@ -14,3 +14,11 @@
 * Decided to work on class components of React and did an initial set-up with Het.
 
 * Created Wireframes for landing page, login and sign up.
+
+## Sprint 3
+
+* Weekly Scrum Report
+
+* Learned what passport.js and JWT authentication is and implemented it in the project.
+
+* Created front-end for login, sign-up and admin home page.

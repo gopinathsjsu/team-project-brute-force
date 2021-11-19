@@ -8,5 +8,9 @@
 * Set up the back-end systems for the web application.
 * Created API to check backend health
 
+## Sprint 3
+* Weekly Scrum Report
+* Developed backend APIs for signup and login of admin and customers, decided to just change the domain name to distinguish between admin and customers.
+
 
 

@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import { Logout } from './login/logout';
 import { PurchaseSeats } from './flights/purchase-seats';
 import AdminHome from './admin/admin-home';
+import AddFlights from './admin/add-flights';
 
 export class Main extends Component {
     render() {
@@ -18,6 +19,7 @@ export class Main extends Component {
                 <Route path='/navbar' component={Navbar} />
                 <Route path='/logout' component={Logout} />
                 <Route path='/admin' component={ AdminHome } />
+                <Route path='/addflights' component={ AddFlights } />
             </div>
         )
     }

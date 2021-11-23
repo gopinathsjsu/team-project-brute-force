@@ -11,4 +11,4 @@ Backend: ExpressJS and NodeJS\
 Frontend: React\
 JS Libraries: (Coming soon)
 ## Scrum Meetings Schedule:
-Every Sunday
+Every Sunday, Tuesday, Thursday

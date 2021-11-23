@@ -31,7 +31,6 @@ class BookFlights extends Component {
         })
     }
     searchSource = (inp, callback) => {
-        console.log(inp);
         axios.defaults.headers.common["authorization"] = "Bearer " + cookie.load('token')
         axios.defaults.withCredentials = true;
         axios.get(BACKEND_URL + '/masters/search?airport=' + inp)
@@ -46,7 +45,6 @@ class BookFlights extends Component {
                     callback(searchedAirports)
                 }
             }).catch(e => {
-                console.log("inside search catch");
                 console.log(e.response);
             })
 
@@ -90,7 +88,6 @@ class BookFlights extends Component {
         console.log(this.state.flightData.length);
         if (this.state.fetchFlight) {
 
-            console.log("here")
             if (this.state.flightData.length == 0) {
                 
                 individualFlightDetails = <div style={{ marginLeft: "300px", marginTop: "150px" }}>
@@ -122,7 +119,6 @@ class BookFlights extends Component {
                             <div class="form-group col-md-6">
                                 <div className="form-group col-md-6">
                                     <label for="source">From</label>
-                                    {/* <input type="text" className="form-control" id="source" onChange={this.handleSourceChange} required /> */}
                                     <AsyncSelect
                                         isClearable
                                         value={this.state.source}
@@ -135,7 +131,6 @@ class BookFlights extends Component {
                             <div class="form-group col-md-6">
                                 <div className="form-group col-md-6">
                                     <label for="source">To</label>
-                                    {/* <input type="text" className="form-control" id="source" onChange={this.handleSourceChange} required /> */}
                                     <AsyncSelect
                                         isClearable
                                         value={this.state.destination}
@@ -154,8 +149,6 @@ class BookFlights extends Component {
                                 <label for="date">Date</label>
                                 <br />
                                 <DateTimePicker onChange={this.handleDateChange} value={this.state.date} disableClock={true} format={"y-MM-dd"} />
-                                {/* <DatePicker name = "aa" onChange = {(date) => this.setState(date)} style={{display: "block", height: "calc(1.5em + .75rem + 2px)", color: "#495057", border: "1px solid #ced4da", width: "100%"}} /> */}
-                                {/* <DayPickerInput /> */}
                             </div>
                         </div>
                         <div style={{ margin: "15px" }}>
@@ -165,7 +158,6 @@ class BookFlights extends Component {
 
                     {individualFlightDetails}
                 </div>
-                {/* <IndividualFLight > */}
             </div>
         )
     }

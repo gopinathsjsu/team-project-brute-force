@@ -93,6 +93,98 @@ router.post("/create", requireSignIn, verifyCustomer, async (req, res) => {
     });
     return;
 });
+// Cancel Reservation
+router.post("/cancel", requireSignIn, verifyCustomer, async (req, res) => {
+
+    const reservationId = req.body.id;
+    if (!reservationId || reservationId == null) {
+        res.status(400).send({ message: "Enter a valid reservationId" });
+        return;
+    }
+
+    // Find reservation
+    const reservation = await models.reservations.findByPk(reservationId);
+
+    if (!reservation || reservation == null || reservation.customer != req.user.id) {
+        res.status(400).send({ message: "Reservation does not exist!" });
+        return;
+    }
+
+    // Find flight
+    const flight = await models.flights.findByPk(reservation.flightNumber);
+    flight.seatsLeft += reservation.quantity;
+    const updatedFlight = await flight.save();
+
+    // Find user
+    const user = await models.users.findByPk(req.user.id);
+    user.miles = user.miles - reservation.milesAwarded + reservation.effectivePrice + reservation.milesUsed;
+    const updatedUser = await user.save();
+
+    // Delete reservation
+    await reservation.destroy();
+
+    res.status(200).send({
+        flightNumber: updatedFlight.flightNumber,
+        seatsLeft: updatedFlight.seatsLeft,
+        userId: updatedUser.id,
+        updatedMiles: updatedUser.miles,
+        firstName: updatedUser.firstName,
+        lastname: updatedUser.lastName,
+        email: updatedUser.email,
+        deletedReservationId: reservationId,
+        message: "Reservation deleted successfully"
+    });
+    return;
+});
+
+// View My Reservations
+router.get("/get", requireSignIn, verifyCustomer, async (req, res) => {
+    const date = new Date();
+    const upcomingReservations = await models.reservations.findAll({
+        where: {
+            customer: req.user.id,
+        },
+        include: [
+            {
+                model: models.flights,
+                required: true,
+                where: {
+                    departureTime: {
+                        [Op.gte]: date
+                    }
+                }
+            },
+            {
+                model: models.users,
+                required: true,
+                attributes: ["id", "firstName", "lastName", "email"]
+            }
+        ],
+    });
+
+    const previousReservations = await models.reservations.findAll({
+        where: {
+            customer: req.user.id,
+        },
+        include: [
+            {
+                model: models.flights,
+                required: true,
+                where: {
+                    departureTime: {
+                        [Op.le]: date
+                    }
+                }
+            },
+            {
+                model: models.users,
+                required: true,
+                attributes: ["id", "firstName", "lastName", "email"]
+            }
+        ],
+    });
+    res.status(200).send({ upcomingReservations, previousReservations });
+});
 
 // Get effefctive price
 router.get('/effectiveprice', requireSignIn, verifyCustomer, async (req, res) => {

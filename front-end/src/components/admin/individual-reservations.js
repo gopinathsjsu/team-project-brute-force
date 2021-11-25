@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import cookie from "react-cookies";
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Col, Row
+    Card, CardBody,Col, Row
 } from 'reactstrap';
 import moment from 'moment';
 

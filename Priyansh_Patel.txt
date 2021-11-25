@@ -22,3 +22,15 @@
 * Learned what passport.js and JWT authentication is and implemented it in the project.
 
 * Created front-end for login, sign-up and admin home page.
+
+## Sprint 4
+
+* Weekly Scrum Report
+
+* Created the front-end for creating flights on the admin side, and decided to display individual flights as a dashboard.
+
+* Created front-end for making a reservation
+
+* Also, designed the role of navbar for every persona.
+
+* Created back-end to view all reservations made by an customer throughout the application

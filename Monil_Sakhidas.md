@@ -12,5 +12,8 @@
 * Weekly Scrum Report
 * Developed backend APIs for signup and login of admin and customers, decided to just change the domain name to distinguish between admin and customers.
 
-
+## Sprint 4
+* Weekly Scrum Report
+* Developed frontend component for search and book flights. Learned the react-select/async library which helped me for displaying airport names with codes
+* Created backend APIs to get an effective price and create reservations.
 

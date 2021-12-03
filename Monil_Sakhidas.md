@@ -17,3 +17,8 @@
 * Developed frontend component for search and book flights. Learned the react-select/async library which helped me for displaying airport names with codes
 * Created backend APIs to get an effective price and create reservations.
 
+## Sprint 5
+* Weekly Scrum Report
+* Tested the application locally.
+* Fixed bugs found during testing phase
+* Deployed the frontend and backend  of the application on EC2 instances using a load balancer.

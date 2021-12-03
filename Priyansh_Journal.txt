@@ -34,3 +34,11 @@
 * Also, designed the role of navbar for every persona.
 
 * Created back-end to view all reservations made by an customer throughout the application
+
+## Sprint 5
+
+* Weekly Scrum Report
+
+* Researched for deploying application on cloud and use load balancer
+
+* Made changes to the application to make it work on the cloud instance

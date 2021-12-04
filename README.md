@@ -12,7 +12,7 @@ Frontend: React\
 JS Libraries: (Coming soon)
 ## Scrum Meetings Schedule:
 Every Sunday, Tuesday, Thursday
-## XP Values Followed
+## XP Values Followed:
 1. Communication
 2. Simplicity
 3. Feedback
